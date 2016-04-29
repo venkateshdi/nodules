@@ -1,4 +1,4 @@
-System.register(['angular2/core', './nodule.service', './nodule.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './nodule.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', './nodule.service', './nodule.component'], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, nodule_service_1, nodule_component_1;
-    var AppComponent;
+    var core_1, nodule_service_1;
+    var NodulesComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,30 +19,30 @@ System.register(['angular2/core', './nodule.service', './nodule.component'], fun
             },
             function (nodule_service_1_1) {
                 nodule_service_1 = nodule_service_1_1;
-            },
-            function (nodule_component_1_1) {
-                nodule_component_1 = nodule_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
-                    this.title = 'Nodules';
+            NodulesComponent = (function () {
+                function NodulesComponent(_noduleService) {
+                    this._noduleService = _noduleService;
                 }
-                AppComponent = __decorate([
+                NodulesComponent.prototype.ngOnInit = function () {
+                    this.getNodules();
+                };
+                NodulesComponent.prototype.getNodules = function () {
+                    var _this = this;
+                    this._noduleService.getNodules().then(function (nodules) { return _this.nodules = nodules; });
+                };
+                NodulesComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: "\n    <h4>{{title}}</h4>\n    <my-nodules></my-nodules>\n  ",
-                        directives: [nodule_component_1.NodulesComponent],
-                        providers: [
-                            nodule_service_1.NoduleService
-                        ]
+                        selector: 'my-nodules',
+                        templateUrl: 'app/nodule.list.html'
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [nodule_service_1.NoduleService])
+                ], NodulesComponent);
+                return NodulesComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("NodulesComponent", NodulesComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=nodule.component.js.map

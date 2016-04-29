@@ -1,12 +1,18 @@
-import {Component} from 'angular2/core';
-import {Nodule} from './Nodule';
-import {NoduleService} from './nodule.service';
+import { Component }       from 'angular2/core';
+import { NoduleService }     from './nodule.service';
+import { NodulesComponent } from './nodule.component';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app/nodule.list.html'
+  selector: 'my-app',
+  template: `
+    <h4>{{title}}</h4>
+    <my-nodules></my-nodules>
+  `,
+  directives: [NodulesComponent],
+  providers: [
+    NoduleService
+  ]
 })
 export class AppComponent {
-    title: "Nodules App";
-    nodules: Nodule[];
- }
+  title = 'Nodules';
+}

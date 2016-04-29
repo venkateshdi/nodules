@@ -1,5 +1,5 @@
-import {Nodule} from './Nodule';
+import {Nodule} from './nodule';
 
 export var NODULES: Nodule[] = [
-  { "id": 1, "name": "Mr. Nice" }
+  { id: 2, name: "test"}
 ];

@@ -1,4 +1,4 @@
-System.register(['./mock-nodules', 'angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './mock-nodules'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,22 +10,22 @@ System.register(['./mock-nodules', 'angular2/core'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var mock_nodules_1, core_1;
+    var core_1, mock_nodules_1;
     var NoduleService;
     return {
         setters:[
-            function (mock_nodules_1_1) {
-                mock_nodules_1 = mock_nodules_1_1;
-            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (mock_nodules_1_1) {
+                mock_nodules_1 = mock_nodules_1_1;
             }],
         execute: function() {
             NoduleService = (function () {
                 function NoduleService() {
                 }
                 NoduleService.prototype.getNodules = function () {
-                    return mock_nodules_1.NODULES;
+                    return Promise.resolve(mock_nodules_1.NODULES);
                 };
                 NoduleService = __decorate([
                     core_1.Injectable(), 
