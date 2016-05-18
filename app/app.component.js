@@ -26,7 +26,7 @@ System.register(['angular2/core', './nodule.service', './nodule.component'], fun
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Nodules';
+                    this.title = 'Nodules App';
                 }
                 AppComponent = __decorate([
                     core_1.Component({

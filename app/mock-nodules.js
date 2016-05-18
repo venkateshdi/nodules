@@ -6,7 +6,8 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             exports_1("NODULES", NODULES = [
-                { id: 2, name: "test" }
+                { id: 1, name: "Sample" },
+                { id: 2, name: "Random" }
             ]);
         }
     }

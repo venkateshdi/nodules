@@ -14,5 +14,5 @@ import { NodulesComponent } from './nodule.component';
   ]
 })
 export class AppComponent {
-  title = 'Nodules';
+  title: string = 'Nodules App';
 }

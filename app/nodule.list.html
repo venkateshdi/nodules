@@ -1,12 +1,14 @@
-<h2>{{nodule.name}} details!</h2>
-<div><label>id: </label>{{nodule.id}}</div>
-<div>
+<h5>{{title}}</h5>
+<ul class="nodules">
+  <li *ngFor="let nodule of nodules" (click)="onselect(nodule)" [class.selected]="nodule === selectedNodule">
+    <span class="badge">{{nodule.id}}</span> {{nodule.name}}
+  </li>
+</ul>
+<div style="float:right;" *ngIf="selectedNodule">
+  <h2>{{selectedNodule.name}} details!</h2>
+  <div><label>id: </label>{{selectedNodule.id}}</div>
+  <div>
     <label>name: </label>
-    <input [(ngModel)]="nodule.name" placeholder="name">
-</div>
-
-<div *ngFor="#nodule of nodules" class="col-1-4">
-    <div class="module nodule">
-      <h4>{{nodule.name}}</h4>
-    </div>
+    <input [(ngModel)]="selectedNodule.name" placeholder="name">
   </div>
+</div>

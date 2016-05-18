@@ -25,6 +25,7 @@ System.register(['angular2/core', './mock-nodules'], function(exports_1, context
                 function NoduleService() {
                 }
                 NoduleService.prototype.getNodules = function () {
+                    console.log(mock_nodules_1.NODULES);
                     return Promise.resolve(mock_nodules_1.NODULES);
                 };
                 NoduleService = __decorate([

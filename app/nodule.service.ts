@@ -4,7 +4,8 @@ import {NODULES} from './mock-nodules';
 
 @Injectable()
 export class NoduleService {
-    getNodules() {
+    getNodules(): Promise<Nodule[]> {
+        console.log(NODULES);
         return Promise.resolve(NODULES);
     }
 }
