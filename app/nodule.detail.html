@@ -1,0 +1,8 @@
+<content class="nodule" *ngIf="nodule">
+  <h5>{{nodule.name}} details!</h5>
+  <div><label>id: </label>{{nodule.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="nodule.name" placeholder="name">
+  </div>
+</content>

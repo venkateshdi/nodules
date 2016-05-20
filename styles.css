@@ -58,14 +58,20 @@ nav a.router-link-active {
   color: #039be5;
 }
 
-/* items class */
-.items {
+.nodules-div{
+  display: inline-block; 
+  border-right: solid 1px #607D8B;
+  height: 568px;
+}
+
+/* nodules class */
+.nodules {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 24em;
 }
-.items li {
+.nodules li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -75,26 +81,26 @@ nav a.router-link-active {
   height: 1.6em;
   border-radius: 4px;
 }
-.items li:hover {
+.nodules li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
-.items li.selected:hover {
+.nodules li.selected:hover {
   background-color: #BBD8DC;
   color: white;
 }
-.items .text {
+.nodules .text {
   position: relative;
   top: -3px;
 }
-.items {
+.nodules {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 24em;
 }
-.items li {
+.nodules li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -104,24 +110,24 @@ nav a.router-link-active {
   height: 1.6em;
   border-radius: 4px;
 }
-.items li:hover {
+.nodules li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
-.items li.selected {
+.nodules li.selected {
   background-color: #CFD8DC;
   color: white;
 }
 
-.items li.selected:hover {
+.nodules li.selected:hover {
   background-color: #BBD8DC;
 }
-.items .text {
+.nodules .text {
   position: relative;
   top: -3px;
 }
-.items .badge {
+.nodules .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -134,6 +140,11 @@ nav a.router-link-active {
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
+}
+
+.nodule {
+  display: inline-block;  
+  border: solid 1px #039be5;
 }
 
 /* everywhere else */

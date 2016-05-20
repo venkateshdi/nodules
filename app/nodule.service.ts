@@ -8,4 +8,10 @@ export class NoduleService {
         console.log(NODULES);
         return Promise.resolve(NODULES);
     }
+
+    getNodule(id: number) {
+        return Promise.resolve(NODULES).then(
+            nodules => nodules.filter(nodule => nodule.id === id)[0]
+        );
+    }
 }

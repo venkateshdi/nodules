@@ -1,18 +1,36 @@
 import { Component }       from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+
 import { NoduleService }     from './nodule.service';
 import { NodulesComponent } from './nodule.component';
+import { NoduleDetailComponent } from './nodule-detail.component';
 
 @Component({
   selector: 'my-app',
   template: `
     <h4>{{title}}</h4>
-    <my-nodules></my-nodules>
+    <a [routerLink]="['Nodules']">Nodules</a>
+  <router-outlet></router-outlet>
+
   `,
-  directives: [NodulesComponent],
+  directives: [ROUTER_DIRECTIVES],
   providers: [
+    ROUTER_PROVIDERS,
     NoduleService
   ]
 })
+@RouteConfig([
+  {
+    path: '/nodules',
+    name: 'Nodules',
+    component: NodulesComponent
+  },
+  {
+  path: '/nodule/:id',
+  name: 'NoduleDetail',
+  component: NoduleDetailComponent
+}
+])
 export class AppComponent {
   title: string = 'Nodules App';
 }

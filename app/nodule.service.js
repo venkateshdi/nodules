@@ -28,6 +28,9 @@ System.register(['angular2/core', './mock-nodules'], function(exports_1, context
                     console.log(mock_nodules_1.NODULES);
                     return Promise.resolve(mock_nodules_1.NODULES);
                 };
+                NoduleService.prototype.getNodule = function (id) {
+                    return Promise.resolve(mock_nodules_1.NODULES).then(function (nodules) { return nodules.filter(function (nodule) { return nodule.id === id; })[0]; });
+                };
                 NoduleService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
