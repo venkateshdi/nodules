@@ -37,7 +37,7 @@ System.register(['angular2/core', 'angular2/router', './nodule.service', './nodu
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h4>{{title}}</h4>\n    <a [routerLink]=\"['Nodules']\">Nodules</a>\n  <router-outlet></router-outlet>\n\n  ",
+                        template: "\n    <h4>{{title}}</h4>\n    <nav>\n    <a [routerLink]=\"['Nodules']\">Show Nodules</a>\n    </nav>\n  <router-outlet></router-outlet>\n  ",
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,

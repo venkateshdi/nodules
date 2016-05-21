@@ -9,9 +9,10 @@ import { NoduleDetailComponent } from './nodule-detail.component';
   selector: 'my-app',
   template: `
     <h4>{{title}}</h4>
-    <a [routerLink]="['Nodules']">Nodules</a>
+    <nav>
+    <a [routerLink]="['Nodules']">Show Nodules</a>
+    </nav>
   <router-outlet></router-outlet>
-
   `,
   directives: [ROUTER_DIRECTIVES],
   providers: [
