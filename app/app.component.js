@@ -48,7 +48,8 @@ System.register(['angular2/core', 'angular2/router', './nodule.service', './nodu
                         {
                             path: '/nodules',
                             name: 'Nodules',
-                            component: nodule_component_1.NodulesComponent
+                            component: nodule_component_1.NodulesComponent,
+                            useAsDefault: true
                         },
                         {
                             path: '/nodule/:id',

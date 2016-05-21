@@ -38,6 +38,9 @@ System.register(['angular2/core', 'angular2/router', './nodule', './nodule.servi
                     this.noduleService.getNodule(id)
                         .then(function (nodule) { return _this.nodule = nodule; });
                 };
+                NoduleDetailComponent.prototype.goBack = function () {
+                    window.history.back();
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', nodule_1.Nodule)

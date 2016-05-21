@@ -24,7 +24,8 @@ import { NoduleDetailComponent } from './nodule-detail.component';
   {
     path: '/nodules',
     name: 'Nodules',
-    component: NodulesComponent
+    component: NodulesComponent,
+    useAsDefault: true
   },
   {
   path: '/nodule/:id',

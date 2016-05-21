@@ -23,4 +23,8 @@ export class NoduleDetailComponent implements OnInit {
         this.noduleService.getNodule(id)
             .then(nodule => this.nodule = nodule);
     }
+
+    goBack() {
+        window.history.back();
+    }
 }
