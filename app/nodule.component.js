@@ -28,11 +28,13 @@ System.register(['angular2/core', 'angular2/router', './nodule-detail.component'
             }],
         execute: function() {
             NodulesComponent = (function () {
-                function NodulesComponent(router, noduleService) {
+                function NodulesComponent(router, noduleService, useMockData) {
                     this.router = router;
                     this.noduleService = noduleService;
+                    this.useMockData = useMockData;
                     this.title = "Nodules List";
                     this.nodules = [];
+                    this.useMock = useMockData;
                 }
                 NodulesComponent.prototype.ngOnInit = function () {
                     this.getNodules();
@@ -42,8 +44,10 @@ System.register(['angular2/core', 'angular2/router', './nodule-detail.component'
                 };
                 NodulesComponent.prototype.getNodules = function () {
                     var _this = this;
-                    var promise = this.noduleService.getNodules();
-                    promise.then(function (nodules) { return _this.nodules = nodules; });
+                    var promise = this.noduleService.getNodules(this.useMock || false);
+                    promise
+                        .then(function (nodules) { return _this.nodules = nodules; })
+                        .catch(console.log('No items found'));
                 };
                 NodulesComponent.prototype.gotoDetail = function () {
                     this.router.navigate(['NoduleDetail', { id: this.selectedNodule.id }]);
@@ -54,7 +58,7 @@ System.register(['angular2/core', 'angular2/router', './nodule-detail.component'
                         templateUrl: 'app/nodule.list.html',
                         directives: [nodule_detail_component_1.NoduleDetailComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, nodule_service_1.NoduleService])
+                    __metadata('design:paramtypes', [router_1.Router, nodule_service_1.NoduleService, Boolean])
                 ], NodulesComponent);
                 return NodulesComponent;
             }());

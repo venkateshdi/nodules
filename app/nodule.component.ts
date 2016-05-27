@@ -15,10 +15,14 @@ export class NodulesComponent implements OnInit {
   title: string = "Nodules List";
   nodules: Nodule[] = [];
   selectedNodule: Nodule;
+  useMock: Boolean;
 
   constructor(
     private router: Router,
-    private noduleService: NoduleService) {
+    private noduleService: NoduleService,
+    private useMockData: Boolean) {
+
+    this.useMock = useMockData;
   }
 
   ngOnInit() {
@@ -30,8 +34,10 @@ export class NodulesComponent implements OnInit {
   }
 
   getNodules(): void {
-    let promise: any = this.noduleService.getNodules();
-    promise.then(nodules => this.nodules = nodules);
+    let promise: any = this.noduleService.getNodules(this.useMock||false);
+    promise
+      .then(nodules => this.nodules = nodules)
+      .catch(console.log('No items found'));
   }
 
   gotoDetail() {
@@ -39,3 +45,4 @@ export class NodulesComponent implements OnInit {
   }
 
 }
+

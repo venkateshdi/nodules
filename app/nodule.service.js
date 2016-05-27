@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock-nodules'], function(exports_1, context_1) {
+System.register(['angular2/core', './provider'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,52 @@ System.register(['angular2/core', './mock-nodules'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_nodules_1;
+    var core_1, provider_1;
     var NoduleService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (mock_nodules_1_1) {
-                mock_nodules_1 = mock_nodules_1_1;
+            function (provider_1_1) {
+                provider_1 = provider_1_1;
             }],
         execute: function() {
             NoduleService = (function () {
                 function NoduleService() {
                 }
-                NoduleService.prototype.getNodules = function () {
-                    console.log(mock_nodules_1.NODULES);
-                    return Promise.resolve(mock_nodules_1.NODULES);
+                NoduleService.prototype.getNodules = function (useMock) {
+                    if (useMock === void 0) { useMock = false; }
+                    if (useMock) {
+                        this.provider = new provider_1.MockProvider();
+                    }
+                    else
+                        this.provider = new provider_1.LocalStorageProvider();
+                    // let nodules: any = localStorage.getItem("nodules") 
+                    //                    || (useMock ? NODULES : null);
+                    var nodules = this.provider.getData();
+                    if (nodules)
+                        return Promise.resolve(nodules);
+                    else
+                        return Promise.resolve(null);
                 };
                 NoduleService.prototype.getNodule = function (id) {
-                    return Promise.resolve(mock_nodules_1.NODULES).then(function (nodules) { return nodules.filter(function (nodule) { return nodule.id === id; })[0]; });
+                    var nodules = this.provider.getData();
+                    return Promise.resolve(nodules).then(function (nodules) { return nodules.filter(function (nodule) { return nodule.id === id; })[0]; }).catch(function (rea) { return console.log(rea); });
+                };
+                NoduleService.prototype.save = function (nodule) {
+                    if (nodule.id) {
+                        return this.put(nodule);
+                    }
+                    return this.post(nodule);
+                };
+                NoduleService.prototype.put = function (nodule) {
+                    this.provider.setData(nodule);
+                    return Promise.resolve(nodule).then(function (n) { return n; });
+                    // .catch(this.handleError)
+                };
+                NoduleService.prototype.post = function (nodule) {
+                    return Promise.resolve(nodule).then(function (n) { return n; });
                 };
                 NoduleService = __decorate([
                     core_1.Injectable(), 

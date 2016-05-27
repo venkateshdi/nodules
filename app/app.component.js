@@ -32,16 +32,17 @@ System.register(['angular2/core', 'angular2/router', './nodule.service', './nodu
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Nodules App';
+                    this.title = 'Nodules';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h4>{{title}}</h4>\n    <nav>\n    <a [routerLink]=\"['Nodules']\">Show Nodules</a>\n    </nav>\n  <router-outlet></router-outlet>\n  ",
+                        template: "\n    <h4>{{title}}</h4>\n    <nav>\n    <a [routerLink]=\"['Nodules']\">Show</a>\n    </nav>\n  <router-outlet></router-outlet>\n  ",
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
-                            nodule_service_1.NoduleService
+                            nodule_service_1.NoduleService,
+                            Boolean
                         ]
                     }),
                     router_1.RouteConfig([

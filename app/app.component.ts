@@ -10,14 +10,15 @@ import { NoduleDetailComponent } from './nodule-detail.component';
   template: `
     <h4>{{title}}</h4>
     <nav>
-    <a [routerLink]="['Nodules']">Show Nodules</a>
+    <a [routerLink]="['Nodules']">Show</a>
     </nav>
   <router-outlet></router-outlet>
   `,
   directives: [ROUTER_DIRECTIVES],
   providers: [
     ROUTER_PROVIDERS,
-    NoduleService
+    NoduleService,
+    Boolean
   ]
 })
 @RouteConfig([
@@ -34,5 +35,5 @@ import { NoduleDetailComponent } from './nodule-detail.component';
 }
 ])
 export class AppComponent {
-  title: string = 'Nodules App';
+  title: string = 'Nodules';
 }
